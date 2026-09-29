@@ -53,6 +53,22 @@
         <i class="fa-solid fa-film"></i>
       </div>
     </section>
-
+    <section class="contact container" id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <form class="contact-form" id="contactForm" onsubmit="onContactSubmit(event)">
+        <input type="text" id="contactName" placeholder="Your name" required />
+        <input type="email" id="contactEmail" placeholder="Your email" required />
+        <textarea id="contactMessage" rows="4" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-primary btn-lg">SEND MESSAGE</button>
+        <p id="contactFeedback" class="search-feedback" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Movie Hub — class project.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
