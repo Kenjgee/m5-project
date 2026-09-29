@@ -2,10 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Movies | Movie Hub</title>
+  <script src="https://kit.fontawesome.com/354a273861.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="banner banner-movies">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <img class="logo-img" src="assets/Movie Hub Logo.png" alt="Movie Hub logo" />
+      </a>
+      <ul class="nav-links nav-links-light">
+        <li><a href="index.html" class="nav-link-light">Home</a></li>
+        <li><a href="movies.html" class="nav-link-light nav-link-underlined">Movies</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn btn-light">CONTACT</a>
+    </nav>
+    <div class="container banner-movies-inner">
+      <h1 class="banner-movies-title">Browse our movies</h1>
+      <form class="search-bar" id="searchForm" onsubmit="onSearchSubmit(event)">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search by Movie Title"
+          oninput="onSearchChange(event)"
+          autocomplete="off"
+        />
+        <button type="submit" class="search-btn" id="searchBtn" onclick="onSearchClick()" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass search-btn__icon"></i>
+          <i class="fas fa-spinner search-btn__loading--spinner"></i>
+        </button>
+      </form>
+    </div>
+  </header>
   
 </body>
 </html>
