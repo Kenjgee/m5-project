@@ -20,6 +20,39 @@
       <a href="#contact" class="btn btn-primary">CONTACT</a>
     </nav>
   </header>
-  
+  <main>
+    <section class="banner">
+      <div class="container banner-inner">
+        <h1 class="banner-title">The USA's most inclusive movie database.</h1>
+        <p class="banner-subtitle">FIND YOUR NEXT MOVIE WITH MOVIE HUB</p>
+        <form class="search-bar" id="homeSearchForm" onsubmit="onSearchSubmit(event)">
+          <input
+            type="text"
+            id="homeInput"
+            class="search-input"
+            placeholder="Search by Movie Title"
+            oninput="onSearchChange(event)"
+            autocomplete="off"
+          />
+          <button type="submit" class="search-btn" onclick="onSearchClick()" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass search-btn__icon"></i>
+          </button>
+        </form>
+        <p class="search-feedback" role="status">Press Enter or click the search button.</p>
+      </div>      
+      <div class="film-strip" aria-hidden="true">
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-film"></i>
+      </div>
+    </section>
+
 </body>
 </html>
