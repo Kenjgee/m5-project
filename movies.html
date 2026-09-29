@@ -37,6 +37,33 @@
       </form>
     </div>
   </header>
-  
+  <main>
+    <section class="results container">
+      <div class="results-bar">
+        <p class="results-count" id="resultsCount">Search results:</p>
+
+        <div class="sort-filter">
+          <label for="sortSelect" class="price-label">
+            Sort by year: <span class="price-value">High to Low</span>
+          </label>
+          <select id="sortSelect" class="sort-select" onchange="onSortChange(event)">
+            <option value="default">Default order</option>
+            <option value="desc" selected>Year: High to Low</option>
+            <option value="asc">Year: Low to High</option>
+          </select>
+        </div>
+      </div>
+      <div class="spinner" id="spinner" aria-label="Loading movies"></div>
+      <div class="movie-grid" id="movieGrid"></div>
+      <p id="noResults" class="no-results" hidden>No movies match your search. Try another title.</p>
+      <p id="apiError" class="no-results" hidden>Could not reach the movie database. Check your connection and try again.</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Movie Hub — class project.</p>
+    </div>
+  </footer>
+  <script src="movies.js"></script>  
 </body>
 </html>
