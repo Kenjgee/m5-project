@@ -18,20 +18,43 @@ function goToMoviesPage() {
   }
 }
 
-function onContactSubmit(event) {
-  event.preventDefault();
-   const contactFeedback = document.getElementById("contactFeedback");
+async function onContactSubmit(event) {
+  event.preventDefault(); // stop the page from reloading
+
+  const form = event.target; // event.target is the <form> that was submitted
+  const feedback = document.getElementById("contactFeedback");
+  const sendBtn = form.querySelector("button");
+
   const name = document.getElementById("contactName").value.trim();
   const email = document.getElementById("contactEmail").value.trim();
+  const message = document.getElementById("contactMessage").value.trim();
 
-  if (!name || !email.includes("@")) {
-    contactFeedback.textContent = "Please enter a valid name and email.";
-    contactFeedback.className = "search-feedback none";
+  if (!name || !email.includes("@") || !message) {
+    feedback.textContent = "Please fill in every box (with a valid email).";
+    feedback.className = "search-feedback none";
     return;
   }
 
-   contactFeedback.textContent = `Thanks, ${name}! We'll get back to you at ${email}.`;
-  contactFeedback.className = "search-feedback found";
+  const templateParams = {
+    user_name: name,
+    user_email: email,
+    message: message
+  };
 
-   event.target.reset();
+  sendBtn.disabled = true;
+  feedback.textContent = "Sending...";
+  feedback.className = "search-feedback";
+
+  try {    
+    await emailjs.send("service_ynh8isc", "template_pkb8gqj", templateParams);
+
+    feedback.textContent = `Thanks, ${name}! Your message was sent.`;
+    feedback.className = "search-feedback found";
+    form.reset();
+  } catch (err) {
+    feedback.textContent = "Something went wrong sending your message. Please try again.";
+    feedback.className = "search-feedback none";
+  } finally {
+    sendBtn.disabled = false;
+  }
 }
