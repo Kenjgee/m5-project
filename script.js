@@ -19,9 +19,9 @@ function goToMoviesPage() {
 }
 
 async function onContactSubmit(event) {
-  event.preventDefault(); // stop the page from reloading
+  event.preventDefault();
 
-  const form = event.target; // event.target is the <form> that was submitted
+  const form = event.target;
   const feedback = document.getElementById("contactFeedback");
   const sendBtn = form.querySelector("button");
 
